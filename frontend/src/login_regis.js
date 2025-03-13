@@ -1,3 +1,4 @@
+
 export function login() {
   // need to add parameters for user email and password
   const emailField = document.getElementById("email").value;
@@ -23,16 +24,51 @@ export function login() {
       }
     })
     .then((data) => {
+      // process user data
       console.log(data.token);
       console.log(data.userId);
     })
     .catch(() => {
-      errorPopup("Your email and password don't match!!! Please try again");
+      errorPopup(
+        "Your email and password don't match!!! Please try again"
+      );
     });
 }
 
 export function registration() {
-  console.log("hello world");
+  const userEmail = document.getElementById("regis-email").value;
+  const userName = document.getElementById("regis-name").value;
+  const userPassword = document.getElementById("regis-password").value;
+  const confirmPassword = document.getElementById("password-confirm").value;
+  if (userPassword !== confirmPassword) {
+    errorPopup("Your two passwords don't match!!! Please try again");
+    return;
+  }
+
+  fetch(`http://localhost:5005/auth/register`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json;charset=utf-8",
+    },
+    body: JSON.stringify({
+      email: userEmail,
+      password: userPassword,
+      name: userName,
+    }),
+  })
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+    })
+    .then((data) => {
+      // process user data
+      console.log(data.token);
+      console.log(data.userId);
+    })
+    .catch(() => {
+      errorPopup("Invalid input");
+    });
 }
 
 export function errorPopup(errorMessage = "error happens") {

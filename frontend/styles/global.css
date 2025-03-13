@@ -8,7 +8,7 @@
 html,
 body {
     font-family: Arial;
-    background-color:#ffffff;
+    background-color: #ffffff;
 }
 
 .container {
@@ -18,7 +18,7 @@ body {
     flex-direction: column;
 }
 
-.lurkForWork-logo {
+.LurkForWork-logo {
     margin-left: 56px;
     margin-top: 32px;
     color: #0a66c2;
@@ -70,7 +70,7 @@ body {
     margin: 0;
 }
 
-/*.email {
+/* .email {
     position: relative;
     margin: 0 auto;
 }
@@ -80,10 +80,14 @@ body {
     top: 35%;
     left: 15px;
     color: rgba(0, 0, 0, 0.6);
-}*/
+} */
 
 #email,
-#password {
+#password,
+#regis-email,
+#regis-name,
+#regis-password,
+#password-confirm {
     width: 100%;
     padding: 16px;
     box-sizing: border-box;
@@ -105,7 +109,7 @@ body {
 
 .hr::after {
     display: inline-block;
-    background:#fff;
+    background: #fff;
     content: "or";
     color: rgba(0, 0, 0, 0.6);
     font-size: 14px;
@@ -116,7 +120,9 @@ body {
 }
 
 .email,
-.password {
+.password,
+.name,
+.password-confirm {
     margin-top: 24px;
 }
 
